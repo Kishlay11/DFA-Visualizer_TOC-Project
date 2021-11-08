@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <link rel="shortcut icon" href="http://getbootstrap.com/assets/ico/favicon.ico">
+      <title>DFA Teaching Kit</title>
+      <link rel = "icon" href = 
+         "https://img.icons8.com/cute-clipart/64/000000/edit.png" 
+         type = "image/x-icon">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+      <script src="jscript.js"></script>
+      <script type="text/javascript" src="vis.js"></script>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+      <link href="vis.css" rel="stylesheet" type="text/css"/>
+      <style type="text/css" id="holderjs-style"></style>
+   </head>
+   <body role="document">
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+         <div class="container-fluid">
+            <a class="navbar-brand" href="#">Theory of Computation Project</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <!-- <li class="nav-item">
+                     <a class="nav-link active" aria-current="page" href="#">Home</a>
+                     </li> -->
+                  <!-- <li class="nav-item">
+                     <a class="nav-link" href="#">Link</a>
+                     </li> -->
+                  <li class="nav-item dropdown">
+                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                     Developed By
+                     </a>
+                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Kishlay (2K19/CO/190)</a></li>
+                        <li><a class="dropdown-item" href="#">Mayank Mittal (2K19/CO/225)</a></li>
+                        <!-- <li><hr class="dropdown-divider"></li>
+                           <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+                     </ul>
+                  </li>
+                  <!-- <li class="nav-item">
+                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                     </li> -->
+               </ul>
+               <div>
+                  <button class="btn btn-outline-success"  onclick=
+                  "window.open('https://docs.google.com/presentation/d/13q1RAc6b3y834jmgCYPJW8_XTp-8JbIgSJNPEr2DR3M/edit?usp=sharing','_blank').focus()"/ style="margin-right: 16px" type="submit">Presentation</button>
+               </div>
+               <button class="btn btn-outline-success"  onclick=
+               "window.open('https://github.com/Kishlay11/DFA-Visualizer_TOC-Project','_blank').focus()" type="submit">Code (GitHub Link)</button>      
+            </div>
+         </div>
+      </nav>
+      <div class="container theme-showcase" id="godown" role="main">
+      <!-- Main jumbotron for a primary marketing message or call to action -->
+      <div class="jumbotron">
+
+ 
+      <center>
+         <h2 id="ddd">DFA Visualizer</h2>
+      </center>
+      <hr>
+      <div class="bs-callout bs-callout-info">
+         <div id ="mynetwork" style="visibility:hidden;">
+            <div id ="divDfa" style="visibility:visible;">
+               <form id = "dfaform" action="">
+                  <div class="form-group">
+                     <label for="exampleInputEmail3" style="font-weight: 600;">State</label>
+                     <!-- !-->
+                     <input type="text" class="form-control" id="stateName" name="stateName" placeholder="State Name" required>
+                     <label class="checkbox-inline" id = "startingStateLabel">
+                        <br>
+                        <!-- !-->
+                        <input type="checkbox" id="startingState" name="startingState" value="1" > <strong>Is this Starting State?</strong>
+                     </label>
+                     </br>
+                     <label class="checkbox-inline">
+                        <!-- !-->
+                        <input type="checkbox" id="finalState" name="finalState" value="1"> <strong>Is this Final State?</strong>
+                     </label>
+                     <br>
+                     <br>
+                     <label for="exampleInputEmail3 "  style="font-weight: 600;">Transitions</label>
+                     <!-- !-->
+                     <input type="text" class="form-control" id="transitions" name="transitions" placeholder="(Symbol, Next-State) separated by commas -> (1,b), (2,d), (3,e)">
+                  </div>
+                  </br>
+                  <!-- !-->
+                  <button type="button" class="btn btn-primary" onclick="dfaCreator(this.form)">Add</button>
+               </form>
+               </label>
+            </div>
+         </div>
+         <center><button type="button" class="btn btn-primary" onclick="createLinkedList()" style="visibility:visible" id = "dfa_create_button">Create DFA</button></center>
+         <hr>
+         <center><h3 id="ddd">Some Functionalities</h3></center>
+         <hr>
+         <!-- <button type="button" class="btn btn-primary" onclick="containsEpsilon()">Contains Epsilon?</button>
+         <p id = "isContainingEpsilon">
+          
+         </p>
+         </br>
+         </br> -->
+
+         <button type="button" class="btn btn-primary" onclick="isLanguageEmpty()">Is Language Empty?</button>
+         <br>
+         <br>
+         <p id = "isLanguageEmpty">
+         </p>
+         </br>
+         </div>
+         
+         
+         <button type="button" class="btn btn-primary" onclick="generateAllPossibleWords()">Generate All Possible Words</button>
+         <br>
+         <br>
+         <div style="width: 200px; word-wrap: break-word; border: solid; visibility: hidden;">
+         <ul id='list'> </ul>
+         <p id = "wordList"> </p>
+         </div>
+         </br>
+         <form id = "stringForm" action="">
+            <div class="form-group">
+               <strong><label for="exampleInputEmail3">Input String</label></strong>
+               <!-- !-->
+               <input type="text" class="form-control" id="inputString" name="inputString" placeholder="Enter String" required>
+            </div>
+            <p id = "stringValidationText">  </p>
+            <button type="button" class="btn btn-primary" onclick="verifyString(this.form)">Check</button>
+         </form>
+         <!-- <center><button type="button" class="btn btn-primary">Show Transition Table</button></center> -->
+      </div>
+      <br>
+      <br>
+      <!-- /container -->
+      <div class="footer">
+        <p>Kishlay (2K19/CO/190) and Mayank Mittal (2K19/CO/225)</p>
+      </div>
+      <!-- Bootstrap core JavaScript
+         ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <script src="jquery.js"></script>
+      <script src="bootstrap.js"></script>
+      <script src="docs.js"></script>
+      <script src="jscript.js"></script>
+      <script type="text/javascript">
+         document.getElementById("myButton1").onclick = function () {
+             location.href = "theory.html";
+         };
+         document.getElementById("myButton2").onclick = function () {
+             location.href = "instructions.html";
+         };
+      </script>
+   </body>
+</html>
